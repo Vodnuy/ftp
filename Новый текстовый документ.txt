@@ -1,0 +1,53 @@
+# Исключить анонимный доступ
+anonymous_enable=NO
+
+# Разрешить локальным пользователям подключаться
+local_enable=YES
+
+# Разрешить запись для локальных пользователей
+write_enable=YES
+
+# Определить директорию, в которой будут храниться файлы FTP
+local_root=/home/ftpuser/ftpdir
+
+# Определить диапазон портов для пассивного режима
+pasv_enable=YES
+pasv_min_port=50000
+pasv_max_port=50100
+
+# Запретить запись анонимным пользователям
+anon_upload_enable=NO
+anon_mkdir_write_enable=NO
+
+# Ограничить пользователей на чтение и запись только в их домашней директории
+chroot_local_user=YES
+allow_writeable_chroot=YES
+
+# Отключить доступ к корневой директории файловой системы
+secure_chroot_dir=/var/run/vsftpd/empty
+
+# Запретить выполнение файлов, загруженных по FTP
+cmds_denied=DELE,RNFR,RNTO
+
+# Запретить запись в скрытые файлы и каталоги
+hide_file={.*}
+
+# Запретить прокси-соединения
+proxy_mode=NO
+
+# Запретить анонимное получение списка файлов (ls)
+dirlist_enable=NO
+
+# Ограничить количество соединений от одного IP-адреса
+max_per_ip=5
+
+# Запретить прокси-протоколы (FTP over HTTP)
+listen_port=21
+listen_ipv6=NO
+
+# Отключить пассивный режим IPv6
+pasv_address=your_ftp_server_ipv4_address
+
+# Запретить использование ASCII-режима передачи данных
+ascii_upload_enable=NO
+ascii_download_enable=NO
